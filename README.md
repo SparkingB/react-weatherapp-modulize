@@ -1,4 +1,4 @@
-# react-todoapp-modulize
+# react-weatherapp-modulize
 
 ### Run APP
 
