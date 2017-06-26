@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WeatherApp } from './components/WeatherApp';
+import { Provider } from 'react-redux';
+import WeatherApp from './components/WeatherApp';
+import { store } from './store/configureStore';
 import "./styles/index.css"
 
 ReactDOM.render(
-    <WeatherApp />,
+    <Provider store={store}>
+        <WeatherApp />
+    </Provider>,
     document.getElementById('root')
 );
 

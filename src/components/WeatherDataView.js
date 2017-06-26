@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { WeatherPolyline } from './WeatherPolyline';
 import { WeatherList } from './WeatherList';
 import { Loading } from './Loading';
+import { ErrorPage } from './ErrorPage';
 
 
 export class WeatherDataView extends React.Component {
 
     render() {
         const { weathers } = this.props;
-        return weathers.length !== 0 ? this.renderData() : this.renderLoading();
+        if (weathers === "error") return this.renderError();
+        else return weathers.length !== 0 ? this.renderData() : this.renderLoading();
     }
 
     renderData() {
@@ -35,9 +37,15 @@ export class WeatherDataView extends React.Component {
             <Loading />
         );
     }
+
+    renderError() {
+        return (
+            <ErrorPage />
+        );
+    }
 }
 
 WeatherDataView.propTypes = {
-    weathers: PropTypes.arrayOf(PropTypes.object.isRequired)
+    weathers: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object.isRequired), PropTypes.string.isRequired])
 }
 
