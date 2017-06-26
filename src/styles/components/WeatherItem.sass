@@ -1,0 +1,81 @@
+@import "../mixins/mixins"
+
+.list-item
+  height: calc( 380px / 8)
+  border-bottom: solid 2px #bbb
+  transition: 0.5s
+  &:first-child
+    height: calc( 380px / 8 * 2)
+    font-size: 20px
+  &:last-child
+    border-bottom: none
+  &:hover
+    transform: translateY(-1px)
+  &:first-child::before
+    content: 'Today'
+    display: block
+    transform-origin: 105px 165px
+    transform: rotate(-50deg)
+    background: #1D678F
+    text-align: center
+    color: white
+
+.date, .weather-pic, .pop, .min-temperature, .max-temperature
+  +verticalCenter
+
+.list-item:first-child >
+  .date
+    left: 30px
+    text-decoration: underline
+    border-bottom: 1px solid #666
+  .weather-pic
+    left: 90px
+    height: 75%
+  .pop
+    top: calc(50% + 15px)
+    left: 170px
+    &::before
+      content: '降雨機率(%)'
+      display: block
+      position: absolute
+      font-size: 12px
+      width: 60px
+      top: -40px
+      left: -15px
+      text-align: center
+  .min-temperature
+    left: 235px
+    top: calc(50% + 15px)
+    &::before
+      content: '最低溫/最高溫(°C)'
+      display: block
+      position: absolute
+      font-size: 12px
+      width: 90px
+      top: -40px
+      left: -15px
+      text-align: center
+      color: #555
+    &::after
+      content: '/'
+      color: #555
+  .max-temperature
+    left: 273px
+    top: calc(50% + 15px)
+
+.date
+  left: 40px
+
+.weather-pic
+  left: 100px
+
+.pop
+  left: 165px
+
+.min-temperature
+  left: 225px
+  color: skyblue
+
+.max-temperature
+  left: 255px
+  color: #e18282
