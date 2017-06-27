@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('build'));
 
-app.use('/', (req, res) => {
+app.use('/api', (req, res) => {
   const url = `http://opendata.cwb.gov.tw/api/v1/rest/datastore${req.url}`;
   console.log(`[proxy request] ${url}`);
   req.pipe(request(url))

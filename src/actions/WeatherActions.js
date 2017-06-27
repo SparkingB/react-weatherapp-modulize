@@ -22,6 +22,8 @@ export const WeatherActions = {
 
             console.log(select);
 
+            //when using express
+            //requestUrl = '= '/api/F-D0047-091?locationName=' + select + '&elementName=MinT,MaxT,T,PoP,Wx&sort=time';'
             const requestUrl = '/F-D0047-091?locationName=' + select + '&elementName=MinT,MaxT,T,PoP,Wx&sort=time';
 
 
@@ -32,7 +34,6 @@ export const WeatherActions = {
                 })
                 .then(json => {
                     console.log("fetch2");
-                                        debugger;
                     return () =>
                         dispatch({
                             type: ActionTypes.LOAD_WEATHER_SUCCESS,
