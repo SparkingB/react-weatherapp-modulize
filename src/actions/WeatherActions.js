@@ -32,6 +32,7 @@ export const WeatherActions = {
                 })
                 .then(json => {
                     console.log("fetch2");
+                                        debugger;
                     return () =>
                         dispatch({
                             type: ActionTypes.LOAD_WEATHER_SUCCESS,
