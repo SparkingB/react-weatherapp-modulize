@@ -24,6 +24,8 @@ export const WeatherActions = {
 
             //when using express
             //requestUrl = '= '/api/F-D0047-091?locationName=' + select + '&elementName=MinT,MaxT,T,PoP,Wx&sort=time';'
+            //when using webpack dev server
+            //requestUrl = '= '/F-D0047-091?locationName=' + select + '&elementName=MinT,MaxT,T,PoP,Wx&sort=time';'
             const requestUrl = '/F-D0047-091?locationName=' + select + '&elementName=MinT,MaxT,T,PoP,Wx&sort=time';
 
 

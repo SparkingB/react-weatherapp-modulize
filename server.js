@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000; 
 
 
-app.use(express.static('build'));
+app.use(express.static(path.resolve(__dirname, 'public', 'build')));
 
 app.use('/api', (req, res) => {
   const url = `http://opendata.cwb.gov.tw/api/v1/rest/datastore${req.url}`;
@@ -16,7 +16,7 @@ app.use('/api', (req, res) => {
 });
 
 app.get('*', (req, res, next) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+  res.sendFile(path.resolve(__dirname, 'public', 'build', 'index.html'))
 })
 
 app.listen(PORT, (err) => {
